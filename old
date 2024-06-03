@@ -1,3 +1,18 @@
+File "/app/superset/app.py", line 34, in create_app
+superset_app            |     app.config.from_object(config_module)
+superset_app            |   File "/usr/local/lib/python3.8/site-packages/flask/config.py", line 227, in from_object
+superset_app            |     obj = import_string(obj)
+superset_app            |   File "/usr/local/lib/python3.8/site-packages/werkzeug/utils.py", line 610, in import_string
+superset_app            |     __import__(import_name)
+superset_app            |   File "/app/superset/config.py", line 1586, in <module>
+superset_app            |     import superset_config
+superset_app            |   File "/app/docker/pythonpath_dev/superset_config.py", line 52, in <module>
+superset_app            |     f"{DATABASE_DIALECT}://"
+superset_app            | NameError: name 'DATABASE_USER' is not defined
+superset_app            | [2024-06-03 19:19:10 +0000] [10] [INFO] Worker exiting (pid: 10)
+superset_app            | [2024-06-03 19:19:10 +0000] [8] [INFO] Shutting down: Master
+superset_app            | [2024-06-03 19:19:10 +0000] [8] [INFO] Reason: Worker failed to boot.
+^CERROR: Aborting.
 #from keycloack_securtiy_manager  import  OIDCSecurityManager
 #from flask_appbuilder.security.manager import AUTH_OID, AUTH_REMOTE_USER, AUTH_DB, AUTH_LDAP, AUTH_OAUTH
 import logging
@@ -47,7 +62,17 @@ ALERT_REPORTS_NOTIFICATION_DRY_RUN = False
 
 
 #migration to postgres
-SQLALCHEMY_DATABASE_URI = "postgresql://superset:superset@10.10.50.26:8005/superset"
+DATABASE_DIALECT = 'postgresql'
+SQLALCHEMY_DATABASE_URI = (
+    f"{DATABASE_DIALECT}://"
+    f"{DATABASE_USER}:{DATABASE_PASSWORD}@"
+    f"{DATABASE_HOST}:{DATABASE_PORT}/{DATABASE_DB}"
+)
+SQLALCHEMY_EXAMPLES_URI = (
+    f"{DATABASE_DIALECT}://"
+    f"{EXAMPLES_USER}:{EXAMPLES_PASSWORD}@"
+    f"{EXAMPLES_HOST}:{EXAMPLES_PORT}/{EXAMPLES_DB}"
+)
 
 FEATURE_FLAGS = {
     "DASHBOARD_NATIVE_FILTERS": True,
