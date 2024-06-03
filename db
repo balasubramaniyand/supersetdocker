@@ -1,0 +1,19 @@
+ File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+superset_worker_beat    |   File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+superset_worker_beat    |   File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+superset_worker_beat    |   File "/app/superset/tasks/celery_app.py", line 31, in <module>
+superset_worker_beat    |     flask_app = create_app()
+superset_worker_beat    |   File "/app/superset/app.py", line 44, in create_app
+superset_worker_beat    |     raise ex
+superset_worker_beat    |   File "/app/superset/app.py", line 34, in create_app
+superset_worker_beat    |     app.config.from_object(config_module)
+superset_worker_beat    |   File "/usr/local/lib/python3.8/site-packages/flask/config.py", line 227, in from_object
+superset_worker_beat    |     obj = import_string(obj)
+superset_worker_beat    |   File "/usr/local/lib/python3.8/site-packages/werkzeug/utils.py", line 610, in import_string
+superset_worker_beat    |     __import__(import_name)
+superset_worker_beat    |   File "/app/superset/config.py", line 1586, in <module>
+superset_worker_beat    |     import superset_config
+superset_worker_beat    |   File "/app/docker/pythonpath_dev/superset_config.py", line 51, in <module>
+superset_worker_beat    |     f"{DATABASE_DIALECT}://"
+superset_worker_beat    | NameError: name 'DATABASE_DIALECT' is not defined
+superset_worker_beat    | 
