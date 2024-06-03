@@ -1,9 +1,113 @@
-REPOSITORY                                       TAG                IMAGE ID       CREATED         SIZE
-<none>                                           <none>             b68e15192cbd   4 hours ago     495MB
-iopexlabs/arlo_superset                          1.2                ed787a20a1e6   4 days ago      2.39GB
-redis                                            7                  1a83fd5edeed   11 days ago     117MB
-redis                                            latest             1a83fd5edeed   11 days ago     117MB
-node                                             18-bullseye-slim   bc502903bd7b   12 days ago     198MB
-iopexlabs/opexwise_ui                            3                  b4490ccbed01   13 days ago     226MB
-<none>                                           <none>             01106a4220b8   13 days ago     2.53GB
-<none>                                           <none>             d8e31a993
+x-superset-image: &superset-image  iopexlabs/arlo_superset:1.2
+x-superset-depends-on: &superset-depends-on
+  - db
+  - redis
+x-superset-volumes:
+  &superset-volumes # /app/pythonpath_docker will be appended to the PYTHONPATH in the final container
+  - ./docker:/app/docker
+  - superset_home:/app/superset_home
+  - ./pythonpath:/app/pythonpath
+version: "3.7"
+services:
+  redis:
+    image: redis:7
+    container_name: superset_cache
+    restart: unless-stopped
+    volumes:
+      - redis:/data
+
+  db:
+    env_file:
+      - path: docker/.env # default
+        required: true
+      - path: docker/.env-local # optional override
+        required: false
+    image: postgres:15
+    container_name: superset_db
+    restart: unless-stopped
+    volumes:
+      - db_home:/var/lib/postgresql/data
+      - ./docker/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+
+  superset:
+    env_file:
+      - path: docker/.env # default
+        required: true
+      - path: docker/.env-local # optional override
+        required: false
+    image: *superset-image
+    container_name: superset_app
+    command: ["/app/docker/docker-bootstrap.sh", "app-gunicorn"]
+    user: "root"
+    restart: unless-stopped
+    ports:
+      - 8088:8088
+    depends_on: *superset-depends-on
+    volumes: *superset-volumes
+
+  superset-init:
+    image: *superset-image
+    container_name: superset_init
+    command: ["/app/docker/docker-init.sh"]
+    env_file:
+      - path: docker/.env # default
+        required: true
+      - path: docker/.env-local # optional override
+        required: false
+    depends_on: *superset-depends-on
+    user: "root"
+    volumes: *superset-volumes
+    healthcheck:
+      disable: true
+
+  superset-worker:
+    image: *superset-image
+    container_name: superset_worker
+    command: ["/app/docker/docker-bootstrap.sh", "worker"]
+    env_file:
+      - path: docker/.env # default
+        required: true
+      - path: docker/.env-local # optional override
+        required: false
+    restart: unless-stopped
+    depends_on: *superset-depends-on
+    user: "root"
+    volumes: *superset-volumes
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "celery -A superset.tasks.celery_app:app inspect ping -d celery@$$HOSTNAME",
+        ]
+
+  superset-worker-beat:
+    image: *superset-image
+    container_name: superset_worker_beat
+    command: ["/app/docker/docker-bootstrap.sh", "beat"]
+    env_file:
+      - path: docker/.env # default
+        required: true
+      - path: docker/.env-local # optional override
+        required: false
+    restart: unless-stopped
+    depends_on: *superset-depends-on
+    user: "root"
+    volumes: *superset-volumes
+    healthcheck:
+      disable: true
+
+volumes:
+  superset_home:
+    external: false
+  db_home:
+    external: false
+  redis:
+    external: false
+
+balasubramaniyand@CHNIOPEXL5097:~/bala/superset$ docker-compose -f docker-compose-image-tag.yml build 
+ERROR: The Compose file './docker-compose-image-tag.yml' is invalid because:
+services.db.env_file contains {"path": "docker/.env", "required": true}, which is an invalid type, it should be a string
+services.superset.env_file contains {"path": "docker/.env", "required": true}, which is an invalid type, it should be a string
+services.superset-init.env_file contains {"path": "docker/.env", "required": true}, which is an invalid type, it should be a string
+services.superset-worker.env_file contains {"path": "docker/.env", "required": true}, which is an invalid type, it should be a string
+services.superset-worker-beat.env_file contains {"path": "docker/.env", "required": true}, which is an invalid type, it should be a string
