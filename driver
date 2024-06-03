@@ -1,0 +1,21 @@
+mmands/execute.py", line 673, in run
+superset_worker         |     state_cls(
+superset_worker         |   File "/app/superset/reports/commands/execute.py", line 574, in next
+superset_worker         |     raise first_ex
+superset_worker         |   File "/app/superset/reports/commands/execute.py", line 543, in next
+superset_worker         |     self.send()
+superset_worker         |   File "/app/superset/reports/commands/execute.py", line 440, in send
+superset_worker         |     notification_content = self._get_notification_content()
+superset_worker         |   File "/app/superset/reports/commands/execute.py", line 347, in _get_notification_content
+superset_worker         |     screenshot_data = self._get_screenshots()
+superset_worker         |   File "/app/superset/reports/commands/execute.py", line 226, in _get_screenshots
+superset_worker         |     raise ReportScheduleScreenshotFailedError(
+superset_worker         | superset.reports.commands.exceptions.ReportScheduleScreenshotFailedError: Failed taking a screenshot Message: 'geckodriver' executable needs to be in PATH. 
+superset_worker         | 
+superset_worker         | [2024-06-03 17:30:00,399: INFO/ForkPoolWorker-2] Task reports.execute[78903286-f6dd-46d1-abb0-cc359a127fdc] succeeded in 0.14968825700634625s: None
+superset_cache          | 1:M 03 Jun 2024 17:30:01.065 * 100 changes in 300 seconds. Saving...
+superset_cache          | 1:M 03 Jun 2024 17:30:01.066 * Background saving started by pid 23
+superset_cache          | 23:C 03 Jun 2024 17:30:01.079 * DB saved on disk
+superset_cache          | 23:C 03 Jun 2024 17:30:01.079 * Fork CoW for RDB: current 0 MB, peak 0 MB, average 0 MB
+superset_cache          | 1:M 03 Jun 2024 17:30:01.166 * Background saving terminated with success
+superset_app            | 127.0.0.1 - - [03/Jun/2024:17:30:02 +0000] "GET /health HTTP/1.1" 200 2 "-" "curl/7.74.0"
