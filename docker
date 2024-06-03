@@ -1,0 +1,20 @@
+balasubramaniyand@CHNIOPEXL5097:~/bala/superset$ docker build -t bala:latest .
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  145.7MB
+Step 1/49 : ARG PY_VER=3.10-slim-bookworm
+Step 2/49 : ARG BUILDPLATFORM=${BUILDPLATFORM:-amd64}
+Step 3/49 : FROM --platform=${BUILDPLATFORM} node:18-bullseye-slim AS superset-node
+ ---> bc502903bd7b
+Step 4/49 : ARG NPM_BUILD_CMD="build"
+ ---> Using cache
+ ---> 6f40da32f19b
+Step 5/49 : RUN apt-get update -qq     && apt-get install         -yqq --no-install-recommends         build-essential         python3
+ ---> Using cache
+ ---> e57885063c3d
+Step 6/49 : ENV BUILD_CMD=${NPM_BUILD_CMD}     PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+ ---> Using cache
+ ---> b68e15192cbd
+Step 7/49 : RUN --mount=type=bind,target=/frontend-mem-nag.sh,src=./docker/frontend-mem-nag.sh     /frontend-mem-nag.sh
