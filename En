@@ -1,0 +1,7 @@
+echo "LOCAL_DEV_CHECK=1" >> .env
+echo "DB_USERNAME=postgres" >> .env
+echo "DB_PASSWORD=postgres" >> .env
+echo "DB_HOST=db" >> .env
+echo "DB_PORT=5432" >> .env
+echo "DB_DATABASE=openproject" >> .env
+echo "OPENPROJECT_EDITION=standard" >> .env
