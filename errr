@@ -1,6 +1,3 @@
-An error occurred while fetching reports info: (sqlite3.OperationalError) database is locked
-[SQL: SELECT ab_role.id AS ab_role_id, ab_role.name AS ab_role_name
-FROM ab_role
-WHERE ab_role.name = ?]
-[parameters: ('Public',)]
-(Background on this error at: https://sqlalche.me/e/14/e3q8)
+We haven't found any Content Security Policy (CSP) defined in the configurations. Please make sure to configure CSP using the TALISMAN_ENABLED and TALISMAN_CONFIG keys or any other external software. Failing to configure CSP have serious security implications. Check https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP for^C
+superset_init         | Syncing granter perms
+superset_app          | 2024-06-04 13:56:05,913:ERROR:flask_appbuilder.security.sqla.manager:DB Creation and initialization failed: (psycopg2.OperationalError) connection to server at "10.10.50.23", port 5432 failed: Connection refused
