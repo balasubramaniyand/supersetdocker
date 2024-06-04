@@ -1,0 +1,6 @@
+An error occurred while fetching reports info: (sqlite3.OperationalError) database is locked
+[SQL: SELECT ab_role.id AS ab_role_id, ab_role.name AS ab_role_name
+FROM ab_role
+WHERE ab_role.name = ?]
+[parameters: ('Public',)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
