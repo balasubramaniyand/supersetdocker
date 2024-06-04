@@ -1,2 +1,20 @@
 AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 127.0.1.1. Set the 'ServerName' directive globally to suppress this message
 Syntax OK
+root@cio-ai:/etc/apache2/sites-available# cat openproject.conf 
+Include /etc/openproject/addons/apache2/includes/server/*.conf
+IncludeOptional /etc/openproject/addons/apache2/custom/server/*.conf
+
+<VirtualHost *:80>
+  ServerName demo-openproject.growipx.com
+  DocumentRoot /opt/openproject/public
+
+  ProxyRequests off
+
+  Include /etc/openproject/addons/apache2/includes/vhost/*.conf
+  IncludeOptional /etc/openproject/addons/apache2/custom/vhost/*.conf
+
+  # Can't use Location block since it would overshadow all the other proxypass directives on CentOS
+  ProxyPass / http://127.0.0.1:6000/ retry=0
+  ProxyPassReverse / http://127.0.0.1:6000/
+</VirtualHost>
+root@cio-ai:/etc/apache2/sites-available
