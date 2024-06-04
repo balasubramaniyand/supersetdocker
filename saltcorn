@@ -1,0 +1,39 @@
+Pulling saltcorn-db (postgres:12)...
+Traceback (most recent call last):
+  File "/usr/bin/docker-compose", line 33, in <module>
+    sys.exit(load_entry_point('docker-compose==1.29.2', 'console_scripts', 'docker-compose')())
+  File "/usr/lib/python3/dist-packages/compose/cli/main.py", line 81, in main
+    command_func()
+  File "/usr/lib/python3/dist-packages/compose/cli/main.py", line 203, in perform_command
+    handler(command, command_options)
+  File "/usr/lib/python3/dist-packages/compose/metrics/decorator.py", line 18, in wrapper
+    result = fn(*args, **kwargs)
+  File "/usr/lib/python3/dist-packages/compose/cli/main.py", line 1186, in up
+    to_attach = up(False)
+  File "/usr/lib/python3/dist-packages/compose/cli/main.py", line 1166, in up
+    return self.project.up(
+  File "/usr/lib/python3/dist-packages/compose/project.py", line 664, in up
+    svc.ensure_image_exists(do_build=do_build, silent=silent, cli=cli)
+  File "/usr/lib/python3/dist-packages/compose/service.py", line 358, in ensure_image_exists
+    self.pull(silent=silent)
+  File "/usr/lib/python3/dist-packages/compose/service.py", line 1251, in pull
+    return progress_stream.get_digest_from_pull(event_stream)
+  File "/usr/lib/python3/dist-packages/compose/progress_stream.py", line 99, in get_digest_from_pull
+    for event in events:
+  File "/usr/lib/python3/dist-packages/compose/service.py", line 1218, in _do_pull
+    output = self.client.pull(repo, **pull_kwargs)
+  File "/usr/lib/python3/dist-packages/docker/api/image.py", line 409, in pull
+    header = auth.get_config_header(self, registry)
+  File "/usr/lib/python3/dist-packages/docker/auth.py", line 45, in get_config_header
+    authcfg = resolve_authconfig(
+  File "/usr/lib/python3/dist-packages/docker/auth.py", line 322, in resolve_authconfig
+    return authconfig.resolve_authconfig(registry)
+  File "/usr/lib/python3/dist-packages/docker/auth.py", line 233, in resolve_authconfig
+    cfg = self._resolve_authconfig_credstore(registry, store_name)
+  File "/usr/lib/python3/dist-packages/docker/auth.py", line 260, in _resolve_authconfig_credstore
+    store = self._get_store_instance(credstore_name)
+  File "/usr/lib/python3/dist-packages/docker/auth.py", line 284, in _get_store_instance
+    self._stores[name] = credentials.Store(
+  File "/usr/lib/python3/dist-packages/docker/credentials/store.py", line 21, in __init__
+    raise errors.InitializationError(
+docker.credentials.errors.InitializationError: docker-credential-desktop not installed or not available in PATH
