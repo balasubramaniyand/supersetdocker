@@ -1,0 +1,3 @@
+balasubramaniyand@CHNIOPEXL5097:~/superset$  scp -R -P 22 -o StrictHostKeyChecking=no /home/balasubramaniyand/'docker opexwise'/dev-server/superset balasubramaniyan.d@10.10.50.23:/home/balasubramaniyan.d 
+balasubramaniyan.d@10.10.50.23's password: 
+/home/balasubramaniyand/docker opexwise/dev-server/superset: not a regular file
