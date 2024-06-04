@@ -1,17 +1,2 @@
-root@cio-ai:/opt/openproject# docker-compose up -d
-WARNING: The OPENPROJECT_DEV_URL variable is not set. Defaulting to a blank string.
-Creating network "openproject_network" with the default driver
-Creating network "openproject_testing" with the default driver
-Creating volume "openproject_downloads-test" with default driver
-Creating volume "openproject_pgdata" with default driver
-Creating volume "openproject_tmp" with default driver
-Creating volume "openproject_opdata" with default driver
-Creating volume "openproject_bundle" with default driver
-Creating volume "openproject_npm" with default driver
-Creating volume "openproject_pgdata-test" with default driver
-Creating volume "openproject_tmp-test" with default driver
-Creating volume "openproject_fedata-test" with default driver
-Pulling db (postgres:13)...
-ERROR: Get "https://registry-1.docker.io/v2/": read tcp 10.20.246.32:35732->54.227.20.253:443: read: connection reset by peer
-root@cio-ai:/opt/openproject# 
-
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 127.0.1.1. Set the 'ServerName' directive globally to suppress this message
+Syntax OK
