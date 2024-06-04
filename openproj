@@ -1,0 +1,5 @@
+root@cio-ai:/opt/openproject# docker-compose up -d
+WARNING: The DEV_UID variable is not set. Defaulting to a blank string.
+WARNING: The DEV_GID variable is not set. Defaulting to a blank string.
+ERROR: Missing mandatory value for "environment" option interpolating {'LOCAL_DEV_CHECK': '${LOCAL_DEV_CHECK:?The docker-compose file for OpenProject has moved to https://github.com/opf/openproject-deploy}', 'RAILS_ENV': 'development', 'OPENPROJECT_CACHE__MEMCACHE__SERVER': 'cache:11211', 'OPENPROJECT_RAILS__CACHE__STORE': 'file_store', 'OPENPROJECT_RAILS__RELATIVE__URL__ROOT': '${OPENPROJECT_RAILS__RELATIVE__URL__ROOT:-}', 'DATABASE_URL': 'postgresql://${DB_USERNAME:-postgres}:${DB_PASSWORD:-postgres}@${DB_HOST:-db}:${DB_PORT:-5432}/${DB_DATABASE:-openproject}', 'OPENPROJECT_EDITION': '${OPENPROJECT_EDITION:-standard}', 'OPENPROJECT_WEB_MAX__THREADS': 1, 'OPENPROJECT_WEB_MIN__THREADS': 1, 'OPENPROJECT_WEB_WORKERS': 0} in service "backend": The docker-compose file for OpenProject has moved to https://github.com/opf/openproject-deploy
+root@cio-ai:/opt/openproject# ^C
