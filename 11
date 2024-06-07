@@ -1,0 +1,680 @@
+superset_worker_beat  | [2024-06-07 07:15:00,051: INFO/MainProcess] Scheduler: Sending due task reports.scheduler (reports.scheduler)
+superset_worker       | [2024-06-07 07:15:00,058: INFO/MainProcess] Task reports.scheduler[1de5ad5f-feb0-4136-8a71-da95b19801f2] received
+superset_worker       | Scheduling alert supportfirst eta: 2024-06-07 07:15:00
+superset_worker       | [2024-06-07 07:15:00,103: INFO/ForkPoolWorker-1] Scheduling alert supportfirst eta: 2024-06-07 07:15:00
+superset_worker       | [2024-06-07 07:15:00,112: INFO/MainProcess] Task reports.execute[d29411ae-db4d-4abe-b321-4790bddbd21b] received
+superset_worker       | [2024-06-07 07:15:00,114: INFO/ForkPoolWorker-1] Task reports.scheduler[1de5ad5f-feb0-4136-8a71-da95b19801f2] succeeded in 0.05368024297058582s: None
+superset_worker       | Executing alert/report, task id: d29411ae-db4d-4abe-b321-4790bddbd21b, scheduled_dttm: 2024-06-07T07:15:00
+superset_worker       | [2024-06-07 07:15:00,117: INFO/ForkPoolWorker-1] Executing alert/report, task id: d29411ae-db4d-4abe-b321-4790bddbd21b, scheduled_dttm: 2024-06-07T07:15:00
+superset_worker       | session is validated: id 8, executionid: d29411ae-db4d-4abe-b321-4790bddbd21b
+superset_worker       | [2024-06-07 07:15:00,118: INFO/ForkPoolWorker-1] session is validated: id 8, executionid: d29411ae-db4d-4abe-b321-4790bddbd21b
+superset_worker       | Running report schedule d29411ae-db4d-4abe-b321-4790bddbd21b as user admin
+superset_worker       | [2024-06-07 07:15:00,175: INFO/ForkPoolWorker-1] Running report schedule d29411ae-db4d-4abe-b321-4790bddbd21b as user admin
+superset_worker       | Init selenium driver
+superset_worker       | [2024-06-07 07:15:00,383: INFO/ForkPoolWorker-1] Init selenium driver
+superset_worker       | Selenium timed out requesting url http://dev.opexwise.ai:8003/superset/dashboard/10/?force=false&standalone=3
+superset_worker       | Traceback (most recent call last):
+superset_worker       |   File "/app/superset/utils/webdriver.py", line 182, in get_screenshot
+superset_worker       |     element = WebDriverWait(driver, self._screenshot_locate_wait).until(
+superset_worker       |   File "/usr/local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py", line 80, in until
+superset_worker       |     raise TimeoutException(message, screen, stacktrace)
+superset_worker       | selenium.common.exceptions.TimeoutException: Message: 
+superset_worker       | 
+superset_worker       | [2024-06-07 07:15:16,038: WARNING/ForkPoolWorker-1] Selenium timed out requesting url http://dev.opexwise.ai:8003/superset/dashboard/10/?force=false&standalone=3
+superset_worker       | Traceback (most recent call last):
+superset_worker       |   File "/app/superset/utils/webdriver.py", line 182, in get_screenshot
+superset_worker       |     element = WebDriverWait(driver, self._screenshot_locate_wait).until(
+superset_worker       |   File "/usr/local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py", line 80, in until
+superset_worker       |     raise TimeoutException(message, screen, stacktrace)
+superset_worker       | selenium.common.exceptions.TimeoutException: Message: 
+superset_worker       | 
+superset_worker       | A downstream exception occurred while generating a report: d29411ae-db4d-4abe-b321-4790bddbd21b. Report Schedule execution failed when generating a screenshot.
+superset_worker       | Traceback (most recent call last):
+superset_worker       |   File "/app/superset/tasks/scheduler.py", line 87, in execute
+superset_worker       |     AsyncExecuteReportScheduleCommand(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 719, in run
+superset_worker       |     raise ex
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 715, in run
+superset_worker       |     ReportScheduleStateMachine(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 673, in run
+superset_worker       |     state_cls(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 574, in next
+superset_worker       |     raise first_ex
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 543, in next
+superset_worker       |     self.send()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 440, in send
+superset_worker       |     notification_content = self._get_notification_content()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 347, in _get_notification_content
+superset_worker       |     screenshot_data = self._get_screenshots()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 230, in _get_screenshots
+superset_worker       |     raise ReportScheduleScreenshotFailedError()
+superset_worker       | superset.reports.commands.exceptions.ReportScheduleScreenshotFailedError: Report Schedule execution failed when generating a screenshot.
+superset_worker       | [2024-06-07 07:15:16,221: ERROR/ForkPoolWorker-1] A downstream exception occurred while generating a report: d29411ae-db4d-4abe-b321-4790bddbd21b. Report Schedule execution failed when generating a screenshot.
+superset_worker       | Traceback (most recent call last):
+superset_worker       |   File "/app/superset/tasks/scheduler.py", line 87, in execute
+superset_worker       |     AsyncExecuteReportScheduleCommand(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 719, in run
+superset_worker       |     raise ex
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 715, in run
+superset_worker       |     ReportScheduleStateMachine(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 673, in run
+superset_worker       |     state_cls(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 574, in next
+superset_worker       |     raise first_ex
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 543, in next
+superset_worker       |     self.send()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 440, in send
+superset_worker       |     notification_content = self._get_notification_content()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 347, in _get_notification_content
+superset_worker       |     screenshot_data = self._get_screenshots()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 230, in _get_screenshots
+superset_worker       |     raise ReportScheduleScreenshotFailedError()
+superset_worker       | superset.reports.commands.exceptions.ReportScheduleScreenshotFailedError: Report Schedule execution failed when generating a screenshot.
+superset_worker       | [2024-06-07 07:15:16,231: INFO/ForkPoolWorker-1] Task reports.execute[d29411ae-db4d-4abe-b321-4790bddbd21b] succeeded in 16.115327255800366s: None
+superset_app          | 127.0.0.1 - - [07/Jun/2024:07:15:20 +0000] "GET /health HTTP/1.1" 200 2 "-" "curl/7.74.0"
+superset_app          | 127.0.0.1 - - [07/Jun/2024:07:15:50 +0000] "GET /health HTTP/1.1" 200 2 "-" "curl/7.74.0"
+superset_worker_beat  | [2024-06-07 07:16:00,032: INFO/MainProcess] Scheduler: Sending due task reports.scheduler (reports.scheduler)
+superset_worker       | [2024-06-07 07:16:00,038: INFO/MainProcess] Task reports.scheduler[17c188cb-da48-49f5-bce4-55984c4a5941] received
+superset_worker       | Scheduling alert supportfirst eta: 2024-06-07 07:16:00
+superset_worker       | [2024-06-07 07:16:00,089: INFO/ForkPoolWorker-1] Scheduling alert supportfirst eta: 2024-06-07 07:16:00
+superset_worker       | [2024-06-07 07:16:00,098: INFO/MainProcess] Task reports.execute[28fcd29e-7beb-4590-a53d-2f62a36d6d00] received
+superset_worker       | [2024-06-07 07:16:00,101: INFO/ForkPoolWorker-1] Task reports.scheduler[17c188cb-da48-49f5-bce4-55984c4a5941] succeeded in 0.05998848471790552s: None
+superset_worker       | Executing alert/report, task id: 28fcd29e-7beb-4590-a53d-2f62a36d6d00, scheduled_dttm: 2024-06-07T07:16:00
+superset_worker       | [2024-06-07 07:16:00,105: INFO/ForkPoolWorker-1] Executing alert/report, task id: 28fcd29e-7beb-4590-a53d-2f62a36d6d00, scheduled_dttm: 2024-06-07T07:16:00
+superset_worker       | session is validated: id 8, executionid: 28fcd29e-7beb-4590-a53d-2f62a36d6d00
+superset_worker       | [2024-06-07 07:16:00,107: INFO/ForkPoolWorker-1] session is validated: id 8, executionid: 28fcd29e-7beb-4590-a53d-2f62a36d6d00
+superset_worker       | Running report schedule 28fcd29e-7beb-4590-a53d-2f62a36d6d00 as user admin
+superset_worker       | [2024-06-07 07:16:00,160: INFO/ForkPoolWorker-1] Running report schedule 28fcd29e-7beb-4590-a53d-2f62a36d6d00 as user admin
+superset_worker       | Init selenium driver
+superset_worker       | [2024-06-07 07:16:00,758: INFO/ForkPoolWorker-1] Init selenium driver
+superset_worker       | Selenium timed out requesting url http://dev.opexwise.ai:8003/superset/dashboard/10/?force=false&standalone=3
+superset_worker       | Traceback (most recent call last):
+superset_worker       |   File "/app/superset/utils/webdriver.py", line 182, in get_screenshot
+superset_worker       |     element = WebDriverWait(driver, self._screenshot_locate_wait).until(
+superset_worker       |   File "/usr/local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py", line 80, in until
+superset_worker       |     raise TimeoutException(message, screen, stacktrace)
+superset_worker       | selenium.common.exceptions.TimeoutException: Message: 
+superset_worker       | 
+superset_worker       | [2024-06-07 07:16:16,281: WARNING/ForkPoolWorker-1] Selenium timed out requesting url http://dev.opexwise.ai:8003/superset/dashboard/10/?force=false&standalone=3
+superset_worker       | Traceback (most recent call last):
+superset_worker       |   File "/app/superset/utils/webdriver.py", line 182, in get_screenshot
+superset_worker       |     element = WebDriverWait(driver, self._screenshot_locate_wait).until(
+superset_worker       |   File "/usr/local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py", line 80, in until
+superset_worker       |     raise TimeoutException(message, screen, stacktrace)
+superset_worker       | selenium.common.exceptions.TimeoutException: Message: 
+superset_worker       | 
+superset_worker       | A downstream exception occurred while generating a report: 28fcd29e-7beb-4590-a53d-2f62a36d6d00. Report Schedule execution failed when generating a screenshot.
+superset_worker       | Traceback (most recent call last):
+superset_worker       |   File "/app/superset/tasks/scheduler.py", line 87, in execute
+superset_worker       |     AsyncExecuteReportScheduleCommand(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 719, in run
+superset_worker       |     raise ex
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 715, in run
+superset_worker       |     ReportScheduleStateMachine(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 673, in run
+superset_worker       |     state_cls(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 574, in next
+superset_worker       |     raise first_ex
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 543, in next
+superset_worker       |     self.send()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 440, in send
+superset_worker       |     notification_content = self._get_notification_content()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 347, in _get_notification_content
+superset_worker       |     screenshot_data = self._get_screenshots()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 230, in _get_screenshots
+superset_worker       |     raise ReportScheduleScreenshotFailedError()
+superset_worker       | superset.reports.commands.exceptions.ReportScheduleScreenshotFailedError: Report Schedule execution failed when generating a screenshot.
+superset_worker       | [2024-06-07 07:16:16,467: ERROR/ForkPoolWorker-1] A downstream exception occurred while generating a report: 28fcd29e-7beb-4590-a53d-2f62a36d6d00. Report Schedule execution failed when generating a screenshot.
+superset_worker       | Traceback (most recent call last):
+superset_worker       |   File "/app/superset/tasks/scheduler.py", line 87, in execute
+superset_worker       |     AsyncExecuteReportScheduleCommand(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 719, in run
+superset_worker       |     raise ex
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 715, in run
+superset_worker       |     ReportScheduleStateMachine(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 673, in run
+superset_worker       |     state_cls(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 574, in next
+superset_worker       |     raise first_ex
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 543, in next
+superset_worker       |     self.send()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 440, in send
+superset_worker       |     notification_content = self._get_notification_content()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 347, in _get_notification_content
+superset_worker       |     screenshot_data = self._get_screenshots()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 230, in _get_screenshots
+superset_worker       |     raise ReportScheduleScreenshotFailedError()
+superset_worker       | superset.reports.commands.exceptions.ReportScheduleScreenshotFailedError: Report Schedule execution failed when generating a screenshot.
+superset_worker       | [2024-06-07 07:16:16,475: INFO/ForkPoolWorker-1] Task reports.execute[28fcd29e-7beb-4590-a53d-2f62a36d6d00] succeeded in 16.371747901663184s: None
+superset_app          | 127.0.0.1 - - [07/Jun/2024:07:16:21 +0000] "GET /health HTTP/1.1" 200 2 "-" "curl/7.74.0"
+
+
+
+superset_app          | HTTPException
+superset_app          | Traceback (most recent call last):
+superset_app          |   File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1517, in full_dispatch_request
+superset_app          |     rv = self.dispatch_request()
+superset_app          |   File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1493, in dispatch_request
+superset_app          |     self.raise_routing_exception(req)
+superset_app          |   File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1475, in raise_routing_exception
+superset_app          |     raise request.routing_exception  # type: ignore
+superset_app          |   File "/usr/local/lib/python3.8/site-packages/flask/ctx.py", line 397, in match_request
+superset_app          |     result = self.url_adapter.match(return_rule=True)  # type: ignore
+superset_app          |   File "/usr/local/lib/python3.8/site-packages/werkzeug/routing.py", line 2047, in match
+superset_app          |     raise NotFound()
+superset_app          | werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+superset_app          | 2024-06-07 07:16:38,368:WARNING:superset.views.base:HTTPException
+superset_app          | Traceback (most recent call last):
+superset_app          |   File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1517, in full_dispatch_request
+superset_app          |     rv = self.dispatch_request()
+superset_app          |   File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1493, in dispatch_request
+superset_app          |     self.raise_routing_exception(req)
+superset_app          |   File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1475, in raise_routing_exception
+superset_app          |     raise request.routing_exception  # type: ignore
+superset_app          |   File "/usr/local/lib/python3.8/site-packages/flask/ctx.py", line 397, in match_request
+superset_app          |     result = self.url_adapter.match(return_rule=True)  # type: ignore
+superset_app          |   File "/usr/local/lib/python3.8/site-packages/werkzeug/routing.py", line 2047, in match
+superset_app          |     raise NotFound()
+superset_app          | werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+superset_app          | 10.10.50.31 - - [07/Jun/2024:07:16:38 +0000] "GET /ws HTTP/1.0" 404 0 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:126.0) Gecko/20100101 Firefox/126.0"
+superset_app          | 127.0.0.1 - - [07/Jun/2024:07:16:51 +0000] "GET /health HTTP/1.1" 200 2 "-" "curl/7.74.0"
+superset_worker_beat  | [2024-06-07 07:17:00,049: INFO/MainProcess] Scheduler: Sending due task reports.scheduler (reports.scheduler)
+superset_worker       | [2024-06-07 07:17:00,056: INFO/MainProcess] Task reports.scheduler[5a23a2f4-2378-4426-8597-ec4a381691e9] received
+superset_worker       | Scheduling alert supportfirst eta: 2024-06-07 07:17:00
+superset_worker       | [2024-06-07 07:17:00,103: INFO/ForkPoolWorker-1] Scheduling alert supportfirst eta: 2024-06-07 07:17:00
+superset_worker       | [2024-06-07 07:17:00,112: INFO/MainProcess] Task reports.execute[1f5af241-ddef-4a81-9db7-853332d96f80] received
+superset_worker       | [2024-06-07 07:17:00,114: INFO/ForkPoolWorker-1] Task reports.scheduler[5a23a2f4-2378-4426-8597-ec4a381691e9] succeeded in 0.05616628471761942s: None
+superset_worker       | Executing alert/report, task id: 1f5af241-ddef-4a81-9db7-853332d96f80, scheduled_dttm: 2024-06-07T07:17:00
+superset_worker       | [2024-06-07 07:17:00,117: INFO/ForkPoolWorker-1] Executing alert/report, task id: 1f5af241-ddef-4a81-9db7-853332d96f80, scheduled_dttm: 2024-06-07T07:17:00
+superset_worker       | session is validated: id 8, executionid: 1f5af241-ddef-4a81-9db7-853332d96f80
+superset_worker       | [2024-06-07 07:17:00,119: INFO/ForkPoolWorker-1] session is validated: id 8, executionid: 1f5af241-ddef-4a81-9db7-853332d96f80
+superset_worker       | Running report schedule 1f5af241-ddef-4a81-9db7-853332d96f80 as user admin
+superset_worker       | [2024-06-07 07:17:00,176: INFO/ForkPoolWorker-1] Running report schedule 1f5af241-ddef-4a81-9db7-853332d96f80 as user admin
+superset_worker       | Init selenium driver
+superset_worker       | [2024-06-07 07:17:00,383: INFO/ForkPoolWorker-1] Init selenium driver
+superset_worker       | Selenium timed out requesting url http://dev.opexwise.ai:8003/superset/dashboard/10/?force=false&standalone=3
+superset_worker       | Traceback (most recent call last):
+superset_worker       |   File "/app/superset/utils/webdriver.py", line 182, in get_screenshot
+superset_worker       |     element = WebDriverWait(driver, self._screenshot_locate_wait).until(
+superset_worker       |   File "/usr/local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py", line 80, in until
+superset_worker       |     raise TimeoutException(message, screen, stacktrace)
+superset_worker       | selenium.common.exceptions.TimeoutException: Message: 
+superset_worker       | 
+superset_worker       | [2024-06-07 07:17:16,028: WARNING/ForkPoolWorker-1] Selenium timed out requesting url http://dev.opexwise.ai:8003/superset/dashboard/10/?force=false&standalone=3
+superset_worker       | Traceback (most recent call last):
+superset_worker       |   File "/app/superset/utils/webdriver.py", line 182, in get_screenshot
+superset_worker       |     element = WebDriverWait(driver, self._screenshot_locate_wait).until(
+superset_worker       |   File "/usr/local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py", line 80, in until
+superset_worker       |     raise TimeoutException(message, screen, stacktrace)
+superset_worker       | selenium.common.exceptions.TimeoutException: Message: 
+superset_worker       | 
+superset_worker       | A downstream exception occurred while generating a report: 1f5af241-ddef-4a81-9db7-853332d96f80. Report Schedule execution failed when generating a screenshot.
+superset_worker       | Traceback (most recent call last):
+superset_worker       |   File "/app/superset/tasks/scheduler.py", line 87, in execute
+superset_worker       |     AsyncExecuteReportScheduleCommand(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 719, in run
+superset_worker       |     raise ex
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 715, in run
+superset_worker       |     ReportScheduleStateMachine(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 673, in run
+superset_worker       |     state_cls(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 574, in next
+superset_worker       |     raise first_ex
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 543, in next
+superset_worker       |     self.send()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 440, in send
+superset_worker       |     notification_content = self._get_notification_content()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 347, in _get_notification_content
+superset_worker       |     screenshot_data = self._get_screenshots()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 230, in _get_screenshots
+superset_worker       |     raise ReportScheduleScreenshotFailedError()
+superset_worker       | superset.reports.commands.exceptions.ReportScheduleScreenshotFailedError: Report Schedule execution failed when generating a screenshot.
+superset_worker       | [2024-06-07 07:17:16,211: ERROR/ForkPoolWorker-1] A downstream exception occurred while generating a report: 1f5af241-ddef-4a81-9db7-853332d96f80. Report Schedule execution failed when generating a screenshot.
+superset_worker       | Traceback (most recent call last):
+superset_worker       |   File "/app/superset/tasks/scheduler.py", line 87, in execute
+superset_worker       |     AsyncExecuteReportScheduleCommand(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 719, in run
+superset_worker       |     raise ex
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 715, in run
+superset_worker       |     ReportScheduleStateMachine(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 673, in run
+superset_worker       |     state_cls(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 574, in next
+superset_worker       |     raise first_ex
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 543, in next
+superset_worker       |     self.send()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 440, in send
+superset_worker       |     notification_content = self._get_notification_content()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 347, in _get_notification_content
+superset_worker       |     screenshot_data = self._get_screenshots()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 230, in _get_screenshots
+superset_worker       |     raise ReportScheduleScreenshotFailedError()
+superset_worker       | superset.reports.commands.exceptions.ReportScheduleScreenshotFailedError: Report Schedule execution failed when generating a screenshot.
+superset_worker       | [2024-06-07 07:17:16,220: INFO/ForkPoolWorker-1] Task reports.execute[1f5af241-ddef-4a81-9db7-853332d96f80] succeeded in 16.103155434131622s: None
+superset_app          | 127.0.0.1 - - [07/Jun/2024:07:17:21 +0000] "GET /health HTTP/1.1" 200 2 "-" "curl/7.74.0"
+superset_app          | 127.0.0.1 - - [07/Jun/2024:07:17:51 +0000] "GET /health HTTP/1.1" 200 2 "-" "curl/7.74.0"
+superset_worker_beat  | [2024-06-07 07:18:00,039: INFO/MainProcess] Scheduler: Sending due task reports.scheduler (reports.scheduler)
+superset_worker       | [2024-06-07 07:18:00,045: INFO/MainProcess] Task reports.scheduler[e16dee75-5ee6-44dd-9600-2d66e06e8500] received
+superset_worker       | Scheduling alert supportfirst eta: 2024-06-07 07:18:00
+superset_worker       | [2024-06-07 07:18:00,091: INFO/ForkPoolWorker-1] Scheduling alert supportfirst eta: 2024-06-07 07:18:00
+superset_worker       | [2024-06-07 07:18:00,100: INFO/MainProcess] Task reports.execute[f9cedc4d-d117-4676-af51-7c98781da7b7] received
+superset_worker       | [2024-06-07 07:18:00,102: INFO/ForkPoolWorker-1] Task reports.scheduler[e16dee75-5ee6-44dd-9600-2d66e06e8500] succeeded in 0.054008056409657s: None
+superset_worker       | Executing alert/report, task id: f9cedc4d-d117-4676-af51-7c98781da7b7, scheduled_dttm: 2024-06-07T07:18:00
+superset_worker       | [2024-06-07 07:18:00,104: INFO/ForkPoolWorker-1] Executing alert/report, task id: f9cedc4d-d117-4676-af51-7c98781da7b7, scheduled_dttm: 2024-06-07T07:18:00
+superset_worker       | session is validated: id 8, executionid: f9cedc4d-d117-4676-af51-7c98781da7b7
+superset_worker       | [2024-06-07 07:18:00,106: INFO/ForkPoolWorker-1] session is validated: id 8, executionid: f9cedc4d-d117-4676-af51-7c98781da7b7
+superset_cache        | 1:M 07 Jun 2024 07:18:00.123 * 100 changes in 300 seconds. Saving...
+superset_cache        | 1:M 07 Jun 2024 07:18:00.124 * Background saving started by pid 22
+superset_cache        | 22:C 07 Jun 2024 07:18:00.146 * DB saved on disk
+superset_cache        | 22:C 07 Jun 2024 07:18:00.148 * Fork CoW for RDB: current 0 MB, peak 0 MB, average 0 MB
+superset_worker       | Running report schedule f9cedc4d-d117-4676-af51-7c98781da7b7 as user admin
+superset_worker       | [2024-06-07 07:18:00,161: INFO/ForkPoolWorker-1] Running report schedule f9cedc4d-d117-4676-af51-7c98781da7b7 as user admin
+superset_cache        | 1:M 07 Jun 2024 07:18:00.225 * Background saving terminated with success
+superset_worker       | Init selenium driver
+superset_worker       | [2024-06-07 07:18:00,362: INFO/ForkPoolWorker-1] Init selenium driver
+superset_worker       | Selenium timed out requesting url http://dev.opexwise.ai:8003/superset/dashboard/10/?force=false&standalone=3
+superset_worker       | Traceback (most recent call last):
+superset_worker       |   File "/app/superset/utils/webdriver.py", line 182, in get_screenshot
+superset_worker       |     element = WebDriverWait(driver, self._screenshot_locate_wait).until(
+superset_worker       |   File "/usr/local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py", line 80, in until
+superset_worker       |     raise TimeoutException(message, screen, stacktrace)
+superset_worker       | selenium.common.exceptions.TimeoutException: Message: 
+superset_worker       | 
+superset_worker       | [2024-06-07 07:18:16,057: WARNING/ForkPoolWorker-1] Selenium timed out requesting url http://dev.opexwise.ai:8003/superset/dashboard/10/?force=false&standalone=3
+superset_worker       | Traceback (most recent call last):
+superset_worker       |   File "/app/superset/utils/webdriver.py", line 182, in get_screenshot
+superset_worker       |     element = WebDriverWait(driver, self._screenshot_locate_wait).until(
+superset_worker       |   File "/usr/local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py", line 80, in until
+superset_worker       |     raise TimeoutException(message, screen, stacktrace)
+superset_worker       | selenium.common.exceptions.TimeoutException: Message: 
+superset_worker       | 
+superset_worker       | A downstream exception occurred while generating a report: f9cedc4d-d117-4676-af51-7c98781da7b7. Report Schedule execution failed when generating a screenshot.
+superset_worker       | Traceback (most recent call last):
+superset_worker       |   File "/app/superset/tasks/scheduler.py", line 87, in execute
+superset_worker       |     AsyncExecuteReportScheduleCommand(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 719, in run
+superset_worker       |     raise ex
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 715, in run
+superset_worker       |     ReportScheduleStateMachine(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 673, in run
+superset_worker       |     state_cls(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 574, in next
+superset_worker       |     raise first_ex
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 543, in next
+superset_worker       |     self.send()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 440, in send
+superset_worker       |     notification_content = self._get_notification_content()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 347, in _get_notification_content
+superset_worker       |     screenshot_data = self._get_screenshots()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 230, in _get_screenshots
+superset_worker       |     raise ReportScheduleScreenshotFailedError()
+superset_worker       | superset.reports.commands.exceptions.ReportScheduleScreenshotFailedError: Report Schedule execution failed when generating a screenshot.
+superset_worker       | [2024-06-07 07:18:16,240: ERROR/ForkPoolWorker-1] A downstream exception occurred while generating a report: f9cedc4d-d117-4676-af51-7c98781da7b7. Report Schedule execution failed when generating a screenshot.
+superset_worker       | Traceback (most recent call last):
+superset_worker       |   File "/app/superset/tasks/scheduler.py", line 87, in execute
+superset_worker       |     AsyncExecuteReportScheduleCommand(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 719, in run
+superset_worker       |     raise ex
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 715, in run
+superset_worker       |     ReportScheduleStateMachine(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 673, in run
+superset_worker       |     state_cls(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 574, in next
+superset_worker       |     raise first_ex
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 543, in next
+superset_worker       |     self.send()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 440, in send
+superset_worker       |     notification_content = self._get_notification_content()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 347, in _get_notification_content
+superset_worker       |     screenshot_data = self._get_screenshots()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 230, in _get_screenshots
+superset_worker       |     raise ReportScheduleScreenshotFailedError()
+superset_worker       | superset.reports.commands.exceptions.ReportScheduleScreenshotFailedError: Report Schedule execution failed when generating a screenshot.
+superset_worker       | [2024-06-07 07:18:16,249: INFO/ForkPoolWorker-1] Task reports.execute[f9cedc4d-d117-4676-af51-7c98781da7b7] succeeded in 16.145321019925177s: None
+superset_app          | 10.10.50.31 - - [07/Jun/2024:07:18:20 +0000] "GET /api/v1/me/ HTTP/1.0" 200 150 "https://dev.opexwise.ai:8003/report/8/log?pageIndex=0&sortColumn=start_dttm&sortOrder=desc" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:126.0) Gecko/20100101 Firefox/126.0"
+superset_app          | 127.0.0.1 - - [07/Jun/2024:07:18:22 +0000] "GET /health HTTP/1.1" 200 2 "-" "curl/7.74.0"
+superset_app          | 127.0.0.1 - - [07/Jun/2024:07:18:52 +0000] "GET /health HTTP/1.1" 200 2 "-" "curl/7.74.0"
+superset_worker_beat  | [2024-06-07 07:19:00,050: INFO/MainProcess] Scheduler: Sending due task reports.scheduler (reports.scheduler)
+superset_worker       | [2024-06-07 07:19:00,058: INFO/MainProcess] Task reports.scheduler[18f542fa-8d39-4965-9157-2635f6c48cfb] received
+superset_worker       | Scheduling alert supportfirst eta: 2024-06-07 07:19:00
+superset_worker       | [2024-06-07 07:19:00,114: INFO/ForkPoolWorker-1] Scheduling alert supportfirst eta: 2024-06-07 07:19:00
+superset_worker       | [2024-06-07 07:19:00,122: INFO/MainProcess] Task reports.execute[aacc6778-ee08-4945-bc7a-71a22b4847e8] received
+superset_worker       | [2024-06-07 07:19:00,124: INFO/ForkPoolWorker-1] Task reports.scheduler[18f542fa-8d39-4965-9157-2635f6c48cfb] succeeded in 0.06452456675469875s: None
+superset_worker       | Executing alert/report, task id: aacc6778-ee08-4945-bc7a-71a22b4847e8, scheduled_dttm: 2024-06-07T07:19:00
+superset_worker       | [2024-06-07 07:19:00,127: INFO/ForkPoolWorker-1] Executing alert/report, task id: aacc6778-ee08-4945-bc7a-71a22b4847e8, scheduled_dttm: 2024-06-07T07:19:00
+superset_worker       | session is validated: id 8, executionid: aacc6778-ee08-4945-bc7a-71a22b4847e8
+superset_worker       | [2024-06-07 07:19:00,129: INFO/ForkPoolWorker-1] session is validated: id 8, executionid: aacc6778-ee08-4945-bc7a-71a22b4847e8
+superset_worker       | Running report schedule aacc6778-ee08-4945-bc7a-71a22b4847e8 as user admin
+superset_worker       | [2024-06-07 07:19:00,183: INFO/ForkPoolWorker-1] Running report schedule aacc6778-ee08-4945-bc7a-71a22b4847e8 as user admin
+superset_worker       | Init selenium driver
+superset_worker       | [2024-06-07 07:19:00,381: INFO/ForkPoolWorker-1] Init selenium driver
+superset_worker       | Selenium timed out requesting url http://dev.opexwise.ai:8003/superset/dashboard/10/?force=false&standalone=3
+superset_worker       | Traceback (most recent call last):
+superset_worker       |   File "/app/superset/utils/webdriver.py", line 182, in get_screenshot
+superset_worker       |     element = WebDriverWait(driver, self._screenshot_locate_wait).until(
+superset_worker       |   File "/usr/local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py", line 80, in until
+superset_worker       |     raise TimeoutException(message, screen, stacktrace)
+superset_worker       | selenium.common.exceptions.TimeoutException: Message: 
+superset_worker       | 
+superset_worker       | [2024-06-07 07:19:16,030: WARNING/ForkPoolWorker-1] Selenium timed out requesting url http://dev.opexwise.ai:8003/superset/dashboard/10/?force=false&standalone=3
+superset_worker       | Traceback (most recent call last):
+superset_worker       |   File "/app/superset/utils/webdriver.py", line 182, in get_screenshot
+superset_worker       |     element = WebDriverWait(driver, self._screenshot_locate_wait).until(
+superset_worker       |   File "/usr/local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py", line 80, in until
+superset_worker       |     raise TimeoutException(message, screen, stacktrace)
+superset_worker       | selenium.common.exceptions.TimeoutException: Message: 
+superset_worker       | 
+superset_worker       | A downstream exception occurred while generating a report: aacc6778-ee08-4945-bc7a-71a22b4847e8. Report Schedule execution failed when generating a screenshot.
+superset_worker       | Traceback (most recent call last):
+superset_worker       |   File "/app/superset/tasks/scheduler.py", line 87, in execute
+superset_worker       |     AsyncExecuteReportScheduleCommand(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 719, in run
+superset_worker       |     raise ex
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 715, in run
+superset_worker       |     ReportScheduleStateMachine(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 673, in run
+superset_worker       |     state_cls(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 574, in next
+superset_worker       |     raise first_ex
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 543, in next
+superset_worker       |     self.send()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 440, in send
+superset_worker       |     notification_content = self._get_notification_content()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 347, in _get_notification_content
+superset_worker       |     screenshot_data = self._get_screenshots()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 230, in _get_screenshots
+superset_worker       |     raise ReportScheduleScreenshotFailedError()
+superset_worker       | superset.reports.commands.exceptions.ReportScheduleScreenshotFailedError: Report Schedule execution failed when generating a screenshot.
+superset_worker       | [2024-06-07 07:19:16,214: ERROR/ForkPoolWorker-1] A downstream exception occurred while generating a report: aacc6778-ee08-4945-bc7a-71a22b4847e8. Report Schedule execution failed when generating a screenshot.
+superset_worker       | Traceback (most recent call last):
+superset_worker       |   File "/app/superset/tasks/scheduler.py", line 87, in execute
+superset_worker       |     AsyncExecuteReportScheduleCommand(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 719, in run
+superset_worker       |     raise ex
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 715, in run
+superset_worker       |     ReportScheduleStateMachine(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 673, in run
+superset_worker       |     state_cls(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 574, in next
+superset_worker       |     raise first_ex
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 543, in next
+superset_worker       |     self.send()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 440, in send
+superset_worker       |     notification_content = self._get_notification_content()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 347, in _get_notification_content
+superset_worker       |     screenshot_data = self._get_screenshots()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 230, in _get_screenshots
+superset_worker       |     raise ReportScheduleScreenshotFailedError()
+superset_worker       | superset.reports.commands.exceptions.ReportScheduleScreenshotFailedError: Report Schedule execution failed when generating a screenshot.
+superset_worker       | [2024-06-07 07:19:16,223: INFO/ForkPoolWorker-1] Task reports.execute[aacc6778-ee08-4945-bc7a-71a22b4847e8] succeeded in 16.09632060583681s: None
+superset_app          | 127.0.0.1 - - [07/Jun/2024:07:19:22 +0000] "GET /health HTTP/1.1" 200 2 "-" "curl/7.74.0"
+superset_app          | 127.0.0.1 - - [07/Jun/2024:07:19:53 +0000] "GET /health HTTP/1.1" 200 2 "-" "curl/7.74.0"
+superset_worker_beat  | [2024-06-07 07:20:00,043: INFO/MainProcess] Scheduler: Sending due task reports.scheduler (reports.scheduler)
+superset_worker       | [2024-06-07 07:20:00,049: INFO/MainProcess] Task reports.scheduler[95f939b4-e4f0-4c54-a6d1-8c12b7b7ee27] received
+superset_worker       | Scheduling alert supportfirst eta: 2024-06-07 07:20:00
+superset_worker       | [2024-06-07 07:20:00,095: INFO/ForkPoolWorker-1] Scheduling alert supportfirst eta: 2024-06-07 07:20:00
+superset_worker       | [2024-06-07 07:20:00,103: INFO/MainProcess] Task reports.execute[c675ef14-ee3a-4893-809f-e43d16e51f30] received
+superset_worker       | [2024-06-07 07:20:00,105: INFO/ForkPoolWorker-1] Task reports.scheduler[95f939b4-e4f0-4c54-a6d1-8c12b7b7ee27] succeeded in 0.053161767311394215s: None
+superset_worker       | Executing alert/report, task id: c675ef14-ee3a-4893-809f-e43d16e51f30, scheduled_dttm: 2024-06-07T07:20:00
+superset_worker       | [2024-06-07 07:20:00,108: INFO/ForkPoolWorker-1] Executing alert/report, task id: c675ef14-ee3a-4893-809f-e43d16e51f30, scheduled_dttm: 2024-06-07T07:20:00
+superset_worker       | session is validated: id 8, executionid: c675ef14-ee3a-4893-809f-e43d16e51f30
+superset_worker       | [2024-06-07 07:20:00,109: INFO/ForkPoolWorker-1] session is validated: id 8, executionid: c675ef14-ee3a-4893-809f-e43d16e51f30
+superset_worker       | Running report schedule c675ef14-ee3a-4893-809f-e43d16e51f30 as user admin
+superset_worker       | [2024-06-07 07:20:00,164: INFO/ForkPoolWorker-1] Running report schedule c675ef14-ee3a-4893-809f-e43d16e51f30 as user admin
+superset_worker       | Init selenium driver
+superset_worker       | [2024-06-07 07:20:00,384: INFO/ForkPoolWorker-1] Init selenium driver
+superset_worker       | Selenium timed out requesting url http://dev.opexwise.ai:8003/superset/dashboard/10/?force=false&standalone=3
+superset_worker       | Traceback (most recent call last):
+superset_worker       |   File "/app/superset/utils/webdriver.py", line 182, in get_screenshot
+superset_worker       |     element = WebDriverWait(driver, self._screenshot_locate_wait).until(
+superset_worker       |   File "/usr/local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py", line 80, in until
+superset_worker       |     raise TimeoutException(message, screen, stacktrace)
+superset_worker       | selenium.common.exceptions.TimeoutException: Message: 
+superset_worker       | 
+superset_worker       | [2024-06-07 07:20:16,086: WARNING/ForkPoolWorker-1] Selenium timed out requesting url http://dev.opexwise.ai:8003/superset/dashboard/10/?force=false&standalone=3
+superset_worker       | Traceback (most recent call last):
+superset_worker       |   File "/app/superset/utils/webdriver.py", line 182, in get_screenshot
+superset_worker       |     element = WebDriverWait(driver, self._screenshot_locate_wait).until(
+superset_worker       |   File "/usr/local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py", line 80, in until
+superset_worker       |     raise TimeoutException(message, screen, stacktrace)
+superset_worker       | selenium.common.exceptions.TimeoutException: Message: 
+superset_worker       | 
+superset_worker       | A downstream exception occurred while generating a report: c675ef14-ee3a-4893-809f-e43d16e51f30. Report Schedule execution failed when generating a screenshot.
+superset_worker       | Traceback (most recent call last):
+superset_worker       |   File "/app/superset/tasks/scheduler.py", line 87, in execute
+superset_worker       |     AsyncExecuteReportScheduleCommand(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 719, in run
+superset_worker       |     raise ex
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 715, in run
+superset_worker       |     ReportScheduleStateMachine(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 673, in run
+superset_worker       |     state_cls(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 574, in next
+superset_worker       |     raise first_ex
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 543, in next
+superset_worker       |     self.send()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 440, in send
+superset_worker       |     notification_content = self._get_notification_content()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 347, in _get_notification_content
+superset_worker       |     screenshot_data = self._get_screenshots()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 230, in _get_screenshots
+superset_worker       |     raise ReportScheduleScreenshotFailedError()
+superset_worker       | superset.reports.commands.exceptions.ReportScheduleScreenshotFailedError: Report Schedule execution failed when generating a screenshot.
+superset_worker       | [2024-06-07 07:20:16,279: ERROR/ForkPoolWorker-1] A downstream exception occurred while generating a report: c675ef14-ee3a-4893-809f-e43d16e51f30. Report Schedule execution failed when generating a screenshot.
+superset_worker       | Traceback (most recent call last):
+superset_worker       |   File "/app/superset/tasks/scheduler.py", line 87, in execute
+superset_worker       |     AsyncExecuteReportScheduleCommand(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 719, in run
+superset_worker       |     raise ex
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 715, in run
+superset_worker       |     ReportScheduleStateMachine(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 673, in run
+superset_worker       |     state_cls(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 574, in next
+superset_worker       |     raise first_ex
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 543, in next
+superset_worker       |     self.send()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 440, in send
+superset_worker       |     notification_content = self._get_notification_content()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 347, in _get_notification_content
+superset_worker       |     screenshot_data = self._get_screenshots()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 230, in _get_screenshots
+superset_worker       |     raise ReportScheduleScreenshotFailedError()
+superset_worker       | superset.reports.commands.exceptions.ReportScheduleScreenshotFailedError: Report Schedule execution failed when generating a screenshot.
+superset_worker       | [2024-06-07 07:20:16,287: INFO/ForkPoolWorker-1] Task reports.execute[c675ef14-ee3a-4893-809f-e43d16e51f30] succeeded in 16.180360523983836s: None
+superset_app          | 127.0.0.1 - - [07/Jun/2024:07:20:23 +0000] "GET /health HTTP/1.1" 200 2 "-" "curl/7.74.0"
+superset_app          | 127.0.0.1 - - [07/Jun/2024:07:20:53 +0000] "GET /health HTTP/1.1" 200 2 "-" "curl/7.74.0"
+superset_app          | HTTPException
+superset_app          | Traceback (most recent call last):
+superset_app          |   File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1517, in full_dispatch_request
+superset_app          |     rv = self.dispatch_request()
+superset_app          |   File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1493, in dispatch_request
+superset_app          |     self.raise_routing_exception(req)
+superset_app          |   File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1475, in raise_routing_exception
+superset_app          |     raise request.routing_exception  # type: ignore
+superset_app          |   File "/usr/local/lib/python3.8/site-packages/flask/ctx.py", line 397, in match_request
+superset_app          |     result = self.url_adapter.match(return_rule=True)  # type: ignore
+superset_app          |   File "/usr/local/lib/python3.8/site-packages/werkzeug/routing.py", line 2047, in match
+superset_app          |     raise NotFound()
+superset_app          | werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+superset_app          | 2024-06-07 07:20:55,276:WARNING:superset.views.base:HTTPException
+superset_app          | Traceback (most recent call last):
+superset_app          |   File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1517, in full_dispatch_request
+superset_app          |     rv = self.dispatch_request()
+superset_app          |   File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1493, in dispatch_request
+superset_app          |     self.raise_routing_exception(req)
+superset_app          |   File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1475, in raise_routing_exception
+superset_app          |     raise request.routing_exception  # type: ignore
+superset_app          |   File "/usr/local/lib/python3.8/site-packages/flask/ctx.py", line 397, in match_request
+superset_app          |     result = self.url_adapter.match(return_rule=True)  # type: ignore
+superset_app          |   File "/usr/local/lib/python3.8/site-packages/werkzeug/routing.py", line 2047, in match
+superset_app          |     raise NotFound()
+superset_app          | werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+superset_app          | 10.10.50.31 - - [07/Jun/2024:07:20:55 +0000] "GET /ws HTTP/1.0" 404 0 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:126.0) Gecko/20100101 Firefox/126.0"
+superset_worker_beat  | [2024-06-07 07:21:00,038: INFO/MainProcess] Scheduler: Sending due task reports.scheduler (reports.scheduler)
+superset_worker       | [2024-06-07 07:21:00,045: INFO/MainProcess] Task reports.scheduler[bd1b6067-d1f0-40cc-b4f4-9148bc75379f] received
+superset_worker       | Scheduling alert supportfirst eta: 2024-06-07 07:21:00
+superset_worker       | [2024-06-07 07:21:00,097: INFO/ForkPoolWorker-1] Scheduling alert supportfirst eta: 2024-06-07 07:21:00
+superset_worker       | [2024-06-07 07:21:00,105: INFO/MainProcess] Task reports.execute[2c0c7354-8808-4472-8d74-3edc9feb80b6] received
+superset_worker       | [2024-06-07 07:21:00,107: INFO/ForkPoolWorker-1] Task reports.scheduler[bd1b6067-d1f0-40cc-b4f4-9148bc75379f] succeeded in 0.059524545446038246s: None
+superset_worker       | Executing alert/report, task id: 2c0c7354-8808-4472-8d74-3edc9feb80b6, scheduled_dttm: 2024-06-07T07:21:00
+superset_worker       | [2024-06-07 07:21:00,110: INFO/ForkPoolWorker-1] Executing alert/report, task id: 2c0c7354-8808-4472-8d74-3edc9feb80b6, scheduled_dttm: 2024-06-07T07:21:00
+superset_worker       | session is validated: id 8, executionid: 2c0c7354-8808-4472-8d74-3edc9feb80b6
+superset_worker       | [2024-06-07 07:21:00,111: INFO/ForkPoolWorker-1] session is validated: id 8, executionid: 2c0c7354-8808-4472-8d74-3edc9feb80b6
+superset_worker       | Running report schedule 2c0c7354-8808-4472-8d74-3edc9feb80b6 as user admin
+superset_worker       | [2024-06-07 07:21:00,167: INFO/ForkPoolWorker-1] Running report schedule 2c0c7354-8808-4472-8d74-3edc9feb80b6 as user admin
+superset_worker       | Init selenium driver
+superset_worker       | [2024-06-07 07:21:00,366: INFO/ForkPoolWorker-1] Init selenium driver
+superset_worker       | Selenium timed out requesting url http://dev.opexwise.ai:8003/superset/dashboard/10/?force=false&standalone=3
+superset_worker       | Traceback (most recent call last):
+superset_worker       |   File "/app/superset/utils/webdriver.py", line 182, in get_screenshot
+superset_worker       |     element = WebDriverWait(driver, self._screenshot_locate_wait).until(
+superset_worker       |   File "/usr/local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py", line 80, in until
+superset_worker       |     raise TimeoutException(message, screen, stacktrace)
+superset_worker       | selenium.common.exceptions.TimeoutException: Message: 
+superset_worker       | 
+superset_worker       | [2024-06-07 07:21:16,009: WARNING/ForkPoolWorker-1] Selenium timed out requesting url http://dev.opexwise.ai:8003/superset/dashboard/10/?force=false&standalone=3
+superset_worker       | Traceback (most recent call last):
+superset_worker       |   File "/app/superset/utils/webdriver.py", line 182, in get_screenshot
+superset_worker       |     element = WebDriverWait(driver, self._screenshot_locate_wait).until(
+superset_worker       |   File "/usr/local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py", line 80, in until
+superset_worker       |     raise TimeoutException(message, screen, stacktrace)
+superset_worker       | selenium.common.exceptions.TimeoutException: Message: 
+superset_worker       | 
+superset_worker       | A downstream exception occurred while generating a report: 2c0c7354-8808-4472-8d74-3edc9feb80b6. Report Schedule execution failed when generating a screenshot.
+superset_worker       | Traceback (most recent call last):
+superset_worker       |   File "/app/superset/tasks/scheduler.py", line 87, in execute
+superset_worker       |     AsyncExecuteReportScheduleCommand(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 719, in run
+superset_worker       |     raise ex
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 715, in run
+superset_worker       |     ReportScheduleStateMachine(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 673, in run
+superset_worker       |     state_cls(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 574, in next
+superset_worker       |     raise first_ex
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 543, in next
+superset_worker       |     self.send()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 440, in send
+superset_worker       |     notification_content = self._get_notification_content()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 347, in _get_notification_content
+superset_worker       |     screenshot_data = self._get_screenshots()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 230, in _get_screenshots
+superset_worker       |     raise ReportScheduleScreenshotFailedError()
+superset_worker       | superset.reports.commands.exceptions.ReportScheduleScreenshotFailedError: Report Schedule execution failed when generating a screenshot.
+superset_worker       | [2024-06-07 07:21:16,195: ERROR/ForkPoolWorker-1] A downstream exception occurred while generating a report: 2c0c7354-8808-4472-8d74-3edc9feb80b6. Report Schedule execution failed when generating a screenshot.
+superset_worker       | Traceback (most recent call last):
+superset_worker       |   File "/app/superset/tasks/scheduler.py", line 87, in execute
+superset_worker       |     AsyncExecuteReportScheduleCommand(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 719, in run
+superset_worker       |     raise ex
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 715, in run
+superset_worker       |     ReportScheduleStateMachine(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 673, in run
+superset_worker       |     state_cls(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 574, in next
+superset_worker       |     raise first_ex
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 543, in next
+superset_worker       |     self.send()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 440, in send
+superset_worker       |     notification_content = self._get_notification_content()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 347, in _get_notification_content
+superset_worker       |     screenshot_data = self._get_screenshots()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 230, in _get_screenshots
+superset_worker       |     raise ReportScheduleScreenshotFailedError()
+superset_worker       | superset.reports.commands.exceptions.ReportScheduleScreenshotFailedError: Report Schedule execution failed when generating a screenshot.
+superset_worker       | [2024-06-07 07:21:16,204: INFO/ForkPoolWorker-1] Task reports.execute[2c0c7354-8808-4472-8d74-3edc9feb80b6] succeeded in 16.09511981252581s: None
+superset_app          | 127.0.0.1 - - [07/Jun/2024:07:21:24 +0000] "GET /health HTTP/1.1" 200 2 "-" "curl/7.74.0"
+superset_app          | 127.0.0.1 - - [07/Jun/2024:07:21:54 +0000] "GET /health HTTP/1.1" 200 2 "-" "curl/7.74.0"
+superset_worker_beat  | [2024-06-07 07:22:00,047: INFO/MainProcess] Scheduler: Sending due task reports.scheduler (reports.scheduler)
+superset_worker       | [2024-06-07 07:22:00,054: INFO/MainProcess] Task reports.scheduler[ccd20fac-d1c3-41e6-a28c-3986436b52d5] received
+superset_worker       | Scheduling alert supportfirst eta: 2024-06-07 07:22:00
+superset_worker       | [2024-06-07 07:22:00,112: INFO/ForkPoolWorker-1] Scheduling alert supportfirst eta: 2024-06-07 07:22:00
+superset_worker       | [2024-06-07 07:22:00,120: INFO/MainProcess] Task reports.execute[6a56f113-7f85-4419-8ab5-781a04001b16] received
+superset_worker       | [2024-06-07 07:22:00,122: INFO/ForkPoolWorker-1] Task reports.scheduler[ccd20fac-d1c3-41e6-a28c-3986436b52d5] succeeded in 0.06552778650075197s: None
+superset_worker       | Executing alert/report, task id: 6a56f113-7f85-4419-8ab5-781a04001b16, scheduled_dttm: 2024-06-07T07:22:00
+superset_worker       | [2024-06-07 07:22:00,125: INFO/ForkPoolWorker-1] Executing alert/report, task id: 6a56f113-7f85-4419-8ab5-781a04001b16, scheduled_dttm: 2024-06-07T07:22:00
+superset_worker       | session is validated: id 8, executionid: 6a56f113-7f85-4419-8ab5-781a04001b16
+superset_worker       | [2024-06-07 07:22:00,126: INFO/ForkPoolWorker-1] session is validated: id 8, executionid: 6a56f113-7f85-4419-8ab5-781a04001b16
+superset_worker       | Running report schedule 6a56f113-7f85-4419-8ab5-781a04001b16 as user admin
+superset_worker       | [2024-06-07 07:22:00,179: INFO/ForkPoolWorker-1] Running report schedule 6a56f113-7f85-4419-8ab5-781a04001b16 as user admin
+superset_worker       | Init selenium driver
+superset_worker       | [2024-06-07 07:22:00,380: INFO/ForkPoolWorker-1] Init selenium driver
+superset_worker       | Selenium timed out requesting url http://dev.opexwise.ai:8003/superset/dashboard/10/?force=false&standalone=3
+superset_worker       | Traceback (most recent call last):
+superset_worker       |   File "/app/superset/utils/webdriver.py", line 182, in get_screenshot
+superset_worker       |     element = WebDriverWait(driver, self._screenshot_locate_wait).until(
+superset_worker       |   File "/usr/local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py", line 80, in until
+superset_worker       |     raise TimeoutException(message, screen, stacktrace)
+superset_worker       | selenium.common.exceptions.TimeoutException: Message: 
+superset_worker       | 
+superset_worker       | [2024-06-07 07:22:16,055: WARNING/ForkPoolWorker-1] Selenium timed out requesting url http://dev.opexwise.ai:8003/superset/dashboard/10/?force=false&standalone=3
+superset_worker       | Traceback (most recent call last):
+superset_worker       |   File "/app/superset/utils/webdriver.py", line 182, in get_screenshot
+superset_worker       |     element = WebDriverWait(driver, self._screenshot_locate_wait).until(
+superset_worker       |   File "/usr/local/lib/python3.8/site-packages/selenium/webdriver/support/wait.py", line 80, in until
+superset_worker       |     raise TimeoutException(message, screen, stacktrace)
+superset_worker       | selenium.common.exceptions.TimeoutException: Message: 
+superset_worker       | 
+superset_worker       | A downstream exception occurred while generating a report: 6a56f113-7f85-4419-8ab5-781a04001b16. Report Schedule execution failed when generating a screenshot.
+superset_worker       | Traceback (most recent call last):
+superset_worker       |   File "/app/superset/tasks/scheduler.py", line 87, in execute
+superset_worker       |     AsyncExecuteReportScheduleCommand(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 719, in run
+superset_worker       |     raise ex
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 715, in run
+superset_worker       |     ReportScheduleStateMachine(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 673, in run
+superset_worker       |     state_cls(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 574, in next
+superset_worker       |     raise first_ex
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 543, in next
+superset_worker       |     self.send()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 440, in send
+superset_worker       |     notification_content = self._get_notification_content()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 347, in _get_notification_content
+superset_worker       |     screenshot_data = self._get_screenshots()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 230, in _get_screenshots
+superset_worker       |     raise ReportScheduleScreenshotFailedError()
+superset_worker       | superset.reports.commands.exceptions.ReportScheduleScreenshotFailedError: Report Schedule execution failed when generating a screenshot.
+superset_worker       | [2024-06-07 07:22:16,243: ERROR/ForkPoolWorker-1] A downstream exception occurred while generating a report: 6a56f113-7f85-4419-8ab5-781a04001b16. Report Schedule execution failed when generating a screenshot.
+superset_worker       | Traceback (most recent call last):
+superset_worker       |   File "/app/superset/tasks/scheduler.py", line 87, in execute
+superset_worker       |     AsyncExecuteReportScheduleCommand(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 719, in run
+superset_worker       |     raise ex
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 715, in run
+superset_worker       |     ReportScheduleStateMachine(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 673, in run
+superset_worker       |     state_cls(
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 574, in next
+superset_worker       |     raise first_ex
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 543, in next
+superset_worker       |     self.send()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 440, in send
+superset_worker       |     notification_content = self._get_notification_content()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 347, in _get_notification_content
+superset_worker       |     screenshot_data = self._get_screenshots()
+superset_worker       |   File "/app/superset/reports/commands/execute.py", line 230, in _get_screenshots
+superset_worker       |     raise ReportScheduleScreenshotFailedError()
+superset_worker       | superset.reports.commands.exceptions.ReportScheduleScreenshotFailedError: Report Schedule execution failed when generating a screenshot.
+superset_worker       | [2024-06-07 07:22:16,254: INFO/ForkPoolWorker-1] Task reports.execute[6a56f113-7f85-4419-8ab5-781a04001b16] succeeded in 16.1299960706383s: None
+superset_app          | 127.0.0.1 - - [07/Jun/2024:07:22:24 +0000] "GET /health HTTP/1.1" 200 2 "-" "curl/7.74.0"
+superset_app          | 127.0.0.1 - - [07/Jun/2024:07:22:55 +0000] "GET /health HTTP/1.1" 200 2 "-" "curl/7.74.0"
+superset_worker_beat  | [2024-06-07 07:23:00,051: INFO/MainProcess] Scheduler: Sending due task reports.scheduler (reports.scheduler)
+superset_worker       | [2024-06-07 07:23:00,059: INFO/MainProcess] Task reports.scheduler[8ea460d4-1be6-4259-82ec-a68bbc15fd20] received
+superset_worker       | Scheduling alert supportfirst eta: 2024-06-07 07:23:00
+superset_worker       | [2024-06-07 07:23:00,106: INFO/ForkPoolWorker-1] Scheduling alert supportfirst eta: 2024-06-07 07:23:00
+superset_worker       | [2024-06-07 07:23:00,114: INFO/MainProcess] Task reports.execute[b16e1acf-2f2a-4b34-ac0f-36cb7bd4d083] received
+superset_worker       | [2024-06-07 07:23:00,117: INFO/ForkPoolWorker-1] Task reports.scheduler[8ea460d4-1be6-4259-82ec-a68bbc15fd20] succeeded in 0.05517320800572634s: None
+superset_worker       | Executing alert/report, task id: b16e1acf-2f2a-4b34-ac0f-36cb7bd4d083, scheduled_dttm: 2024-06-07T07:23:00
+superset_worker       | [2024-06-07 07:23:00,120: INFO/ForkPoolWorker-1] Executing alert/report, task id: b16e1acf-2f2a-4b34-ac0f-36cb7bd4d083, scheduled_dttm: 2024-06-07T07:23:00
+superset_worker       | session is validated: id 8, executionid: b16e1acf-2f2a-4b34-ac0f-36cb7bd4d083
+superset_worker       | [2024-06-07 07:23:00,123: INFO/ForkPoolWorker-1] session is validated: id 8, executionid: b16e1acf-2f2a-4b34-ac0f-36cb7bd4d083
+superset_worker       | Running report schedule b16e1acf-2f2a-4b34-ac0f-36cb7bd4d083 as user admin
+superset_worker       | [2024-06-07 07:23:00,183: INFO/ForkPoolWorker-1] Running report schedule b16e1acf-2f2a-4b34-ac0f-36cb7bd4d083 as user admin
+superset_worker       | Init selenium driver
+superset_worker       | [2024-06-07 07:23:00,390: INFO/ForkPoolWorker-1] Init selenium driver
+^Ccanceled
+root@opexwise-dev2:~/superset# 
+
